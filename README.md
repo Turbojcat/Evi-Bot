@@ -74,7 +74,7 @@
 
 ### Installation
 
-1. **Clone the repository**
+1. **Clone the repository** (Contact on on support server)
    ```bash
    git clone https://github.com/Turbojcat/Evi-Bot.git
    cd Evi-Bot
@@ -118,12 +118,12 @@ CLIENT_SECRET=your_client_secret
 BOT_INVITE_LINK=your_bot_invite_link
 
 # Database
-DATABASE_NAME=evi_bot.db
+DATABASE_NAME=your_database_name_here
 
 # Bot Info
-BOT_NAME=Evi
+BOT_NAME=your_bot_name
 BOT_VERSION=0.0.1
-BOT_AUTHOR=Thasinia Sarcyne
+BOT_AUTHOR=your_bot_autor_name_here
 BOT_LANGUAGE=TS
 
 # Embed Colors
@@ -134,15 +134,14 @@ EMBED_COLOR_WARNING=#ffff00
 EMBED_COLOR_INFO=#0099ff
 
 # Permissions
-BOT_OWNER_ID=315927854523219968
+BOT_OWNER_ID=bot_owner_id_1
 DEV_IDS=dev_id_1,dev_id_2
 
 # Premium System
 SUPPORT_SERVER_INVITE=6tnqjeRach
 PREMIUM_PRICE_MONTHLY=10
-PREMIUM_PRICE_LIFETIME=200
-PREMIUM_PRICE_SOURCE_CODE=1000
-LEGAL_ACCESS_PASSWORD=123
+PREMIUM_PRICE_LIFETIME=10
+PREMIUM_PRICE_SOURCE_CODE=10
 ```
 
 ## 📚 Commands
