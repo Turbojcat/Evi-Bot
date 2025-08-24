@@ -41,18 +41,60 @@ src/commands/
 ├── general/          # General utility commands
 │   ├── help.ts
 │   └── ping.ts
-├── moderation/       # Moderation commands
-│   ├── kick.ts
-│   └── ban.ts
+├── utility/          # Utility commands
+│   ├── help.ts
+│   ├── ping.ts
+│   ├── poll.ts
+│   ├── announce.ts
+│   ├── avatar.ts
+│   ├── serverinfo.ts
+│   ├── userinfo.ts
+│   └── stats.ts
+├── economy/          # Economy system commands
+│   ├── economy.ts
+│   ├── daily.ts
+│   ├── weekly.ts
+│   ├── monthly.ts
+│   └── currency.ts
+├── admin/           # Administrative commands
+│   ├── welcome.ts
+│   ├── logging.ts
+│   ├── automod.ts
+│   ├── statistics.ts
+│   ├── trialmodrole.ts
+│   ├── modrole.ts
+│   ├── adminrole.ts
+│   ├── serverdevrole.ts
+│   ├── promote.ts
+│   ├── demote.ts
+│   ├── permissions.ts
+│   ├── permissionlist.ts
+│   └── currency.ts
+├── dev/             # Developer commands
+│   ├── reload.ts
+│   └── premiumstatus.ts
+├── botowner/        # Bot owner commands
+│   ├── premium.ts
+│   └── legalaccess.ts
+├── setup/           # Setup commands
+│   ├── welcome.ts
+│   └── poll.ts
+├── moderation/      # Moderation commands
+│   ├── ban.ts
+│   ├── unban.ts
+│   └── clear.ts
 ├── fun/             # Fun and entertainment
 │   ├── 8ball.ts
-│   └── joke.ts
-├── admin/           # Administrative commands
-│   ├── reload.ts
-│   └── config.ts
+│   └── coinflip.ts
+├── legal/           # Legal document commands
+│   ├── premium.ts
+│   ├── policy.ts
+│   ├── tos.ts
+│   └── license.ts
 └── info/            # Information commands
     ├── serverinfo.ts
-    └── userinfo.ts
+    ├── userinfo.ts
+    └── stats.ts
 ```
 
 ## 🛡️ Permission Levels
@@ -60,11 +102,15 @@ src/commands/
 The bot uses its own permission system:
 
 - **`user`**: Basic commands available to everyone
+- **`trialmod`**: Limited moderation capabilities
 - **`mod`**: Moderation and management commands
-- **`admin`**: Administrative and configuration commands  
+- **`admin`**: Administrative and configuration commands
+- **`sdev`**: Server developer privileges
+- **`sowner`**: Server owner level
 - **`dev`**: Bot development and maintenance commands
+- **`botowner`**: Full bot control
 
-Guild owners automatically have `dev` permissions.
+Guild owners automatically have `sowner` permissions. Bot owner (BOTOWNER_ID) has `botowner` permissions.
 
 ## 🎨 Using Embeds
 
@@ -209,48 +255,59 @@ export default hello;
 
 ### Command with Options
 ```typescript
-// src/commands/moderation/warn.ts
-import { SlashCommandBuilder, ChatInputCommandInteraction } from 'discord.js';
+// src/commands/economy/economy.ts
+import { SlashCommandBuilder, ChatInputCommandInteraction, Message } from 'discord.js';
 import { Command } from '../../types';
 import { EmbedUtils } from '../../utils/embeds';
+import { databaseManager } from '../../utils/database';
 
-const warn: Command = {
+const economy: Command = {
   data: new SlashCommandBuilder()
-    .setName('warn')
-    .setDescription('Warn a user')
-    .addUserOption(option =>
-      option
-        .setName('user')
-        .setDescription('The user to warn')
-        .setRequired(true)
+    .setName('economy')
+    .setDescription('Economy system commands')
+    .addSubcommand(subcommand =>
+      subcommand
+        .setName('balance')
+        .setDescription('Check your or another user\'s balance')
+        .addUserOption(option =>
+          option
+            .setName('user')
+            .setDescription('The user to check balance for')
+            .setRequired(false)
+        )
     )
-    .addStringOption(option =>
-      option
-        .setName('reason')
-        .setDescription('Reason for the warning')
-        .setRequired(false)
+    .addSubcommand(subcommand =>
+      subcommand
+        .setName('transfer')
+        .setDescription('Transfer money to another user')
+        .addUserOption(option =>
+          option
+            .setName('user')
+            .setDescription('The user to transfer money to')
+            .setRequired(true)
+        )
+        .addIntegerOption(option =>
+          option
+            .setName('amount')
+            .setDescription('Amount of money to transfer')
+            .setRequired(true)
+            .setMinValue(1)
+        )
     ),
   
-  aliases: ['warning'],
-  description: 'Warn a user for breaking server rules',
-  usage: '/warn <user> [reason]',
-  permissionLevel: 'mod',
+  aliases: ['eco', 'economy', 'balance', 'bal', 'money', 'cash', 'transfer', 'pay', 'send', 'give'],
+  description: 'Economy system - balance, transfer, leaderboard, and admin functions',
+  usage: '/economy [@user] | /economy <transfer|leaderboard|add|remove|set|reset> [@user] [amount] [reason]',
+  permissionLevel: 'user',
 
-  async execute(interaction: ChatInputCommandInteraction) {
-    const targetUser = interaction.options.getUser('user', true);
-    const reason = interaction.options.getString('reason') || 'No reason provided';
-    const moderator = interaction.user;
-
-    await interaction.reply({
-      embeds: [EmbedUtils.warning(
-        'User Warned',
-        `${targetUser} has been warned by ${moderator}\n\n**Reason:** ${reason}`
-      )]
-    });
+  async execute(interaction: ChatInputCommandInteraction | Message, args?: string[]) {
+    // Command logic here
+    // Supports both slash commands and prefix commands
+    // Handles multiple subcommands: balance, transfer, leaderboard, admin commands
   }
 };
 
-export default warn;
+export default economy;
 ```
 
 ## 🚀 Best Practices

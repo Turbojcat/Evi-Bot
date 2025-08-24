@@ -118,12 +118,12 @@ CLIENT_SECRET=your_client_secret
 BOT_INVITE_LINK=your_bot_invite_link
 
 # Database
-DATABASE_NAME=evi_bot.db
+DATABASE_NAME=your_database_name
 
 # Bot Info
-BOT_NAME=Evi
+BOT_NAME=your_bot_name
 BOT_VERSION=0.0.1
-BOT_AUTHOR=Thasinia Sarcyne
+BOT_AUTHOR=your_name
 BOT_LANGUAGE=TS
 
 # Embed Colors
@@ -134,15 +134,14 @@ EMBED_COLOR_WARNING=#ffff00
 EMBED_COLOR_INFO=#0099ff
 
 # Permissions
-BOT_OWNER_ID=315927854523219968
+BOT_OWNER_ID=your_user_id
 DEV_IDS=dev_id_1,dev_id_2
 
 # Premium System
-SUPPORT_SERVER_INVITE=6tnqjeRach
-PREMIUM_PRICE_MONTHLY=10
-PREMIUM_PRICE_LIFETIME=200
-PREMIUM_PRICE_SOURCE_CODE=1000
-LEGAL_ACCESS_PASSWORD=123
+SUPPORT_SERVER_INVITE=your_discord_invite_link
+PREMIUM_PRICE_MONTHLY=your_Price
+PREMIUM_PRICE_LIFETIME=your_Price
+PREMIUM_PRICE_SOURCE_CODE=your_price
 ```
 
 ## 📚 Commands
@@ -153,16 +152,27 @@ LEGAL_ACCESS_PASSWORD=123
 | `/help` | Shows interactive help menu | `/help [category] [command]` | User |
 | `/ping` | Check bot latency | `/ping` | User |
 | `/serverinfo` | Display server information | `/serverinfo` | User |
+| `/userinfo` | Display user information | `/userinfo [user]` | User |
+| `/avatar` | Show user avatar | `/avatar [user]` | User |
+| `/announce` | Make an announcement | `/announce <message>` | Mod |
 
 ### 🔧 **Admin Commands**
 | Command | Description | Usage | Permission |
 |---------|-------------|-------|------------|
-| `/reload` | Reload all commands | `/reload` | Admin |
+| `/reload` | Reload all commands | `/reload` | Dev |
 | `/legalaccess` | Access legal ownership info | `/legalaccess` | BOTOWNER |
 | `/promote` | Promote user to higher level | `/promote <user> <level>` | Admin |
 | `/demote` | Demote user to lower level | `/demote <user> <level>` | Admin |
 | `/permissions` | Check user permission level | `/permissions [user]` | User |
 | `/permissionlist` | Show all permission levels | `/permissionlist` | User |
+| `/welcome` | Configure welcome system | `/welcome <setup|test>` | Admin |
+| `/logging` | Configure logging system | `/logging <setup|test>` | Admin |
+| `/automod` | Configure auto-moderation | `/automod <setup|test>` | Admin |
+| `/statistics` | Show server statistics | `/statistics` | Admin |
+| `/trialmodrole` | Manage trial mod roles | `/trialmodrole <add|remove> <@role>` | Sowner |
+| `/modrole` | Manage mod roles | `/modrole <add|remove> <@role>` | Sowner |
+| `/adminrole` | Manage admin roles | `/adminrole <add|remove> <@role>` | Sowner |
+| `/serverdevrole` | Manage server dev roles | `/serverdevrole <add|remove> <@role>` | Sowner |
 
 ### ⚖️ **Legal Commands**
 | Command | Description | Usage | Permission |
@@ -172,17 +182,46 @@ LEGAL_ACCESS_PASSWORD=123
 | `/tos` | View terms of service | `/tos` | User |
 | `/license` | View license agreement | `/license` | User |
 
+### 💰 **Economy Commands**
+| Command | Description | Usage | Permission |
+|---------|-------------|-------|------------|
+| `/economy` | Economy system commands | `/economy [@user]` | User |
+| `/daily` | Collect daily reward | `/daily` | User |
+| `/weekly` | Collect weekly reward | `/weekly` | User |
+| `/monthly` | Collect monthly reward | `/monthly` | User |
+| `/currency` | Manage custom currency | `/currency <set|reset|info>` | Admin |
+
+### 🎮 **Fun Commands**
+| Command | Description | Usage | Permission |
+|---------|-------------|-------|------------|
+| `/8ball` | Ask magic 8-ball | `/8ball <question>` | User |
+| `/coinflip` | Flip a coin | `/coinflip` | User |
+
+### 🛡️ **Moderation Commands**
+| Command | Description | Usage | Permission |
+|---------|-------------|-------|------------|
+| `/ban` | Ban a user | `/ban <user> [reason]` | Mod |
+| `/unban` | Unban a user | `/unban <user>` | Mod |
+| `/clear` | Clear messages | `/clear <amount>` | Mod |
+
+### 📊 **Setup Commands**
+| Command | Description | Usage | Permission |
+|---------|-------------|-------|------------|
+| `/poll` | Create a poll | `/poll <question> [options] [duration]` | Mod |
+| `/welcome` | Configure welcome system | `/welcome <setup|test>` | Admin |
+
 ### 📊 **Command Categories**
 - **General** - Basic utility commands
+- **Utility** - Advanced utility commands
 - **Admin** - Administrative functions
+- **Dev** - Developer commands
+- **Botowner** - Bot owner commands
 - **Info** - Information and status
 - **Legal** - Legal documents and terms
-- **Premium** - Premium features (coming soon)
-- **Fun** - Entertainment commands (coming soon)
-- **Games** - Game-related commands (coming soon)
-- **Moderation** - Server moderation (coming soon)
-- **Economy** - Currency system (coming soon)
-- **Music** - Music playback (coming soon)
+- **Economy** - Currency and economy system
+- **Fun** - Entertainment commands
+- **Moderation** - Server moderation
+- **Setup** - Server setup commands
 
 ## 🔐 Permission System
 
@@ -194,14 +233,16 @@ LEGAL_ACCESS_PASSWORD=123
 4. **Admin** - Server administration
 5. **Sdev** - Server developer privileges
 6. **Sowner** - Server owner level
-7. **DEV** - Bot developer access
-8. **BOTOWNER** - Full bot control
+7. **Dev** - Bot developer access
+8. **Botowner** - Full bot control
 
 ### Permission Features
 - **Database Storage** - Permissions persist across restarts
 - **Cache System** - Fast permission lookups
 - **Role Management** - Easy promotion/demotion
-- **Override System** - BOTOWNER and DEV bypass all restrictions
+- **Override System** - Botowner and Dev bypass all restrictions
+- **Automatic Assignment** - Guild owners get 'sowner' permissions
+- **Role-based Permissions** - Assign permissions to Discord roles
 
 ## 💎 Premium System
 
@@ -232,6 +273,7 @@ LEGAL_ACCESS_PASSWORD=123
   - Must have Discord Administrator permission
   - No resale allowed (€10,000 penalty)
   - No ownership transfer
+  - Personal use only
 
 ## ⚖️ Legal Framework
 

@@ -8,7 +8,7 @@ This document explains how everything works in the ThasiniaBot project so a new 
 
 ### Prerequisites
 - Node.js 18+ installed
-- PostgreSQL database set up
+- SQLite database (automatic setup)
 - Discord Bot Token from Discord Developer Portal
 - Git (for version control)
 
@@ -29,11 +29,8 @@ This document explains how everything works in the ThasiniaBot project so a new 
 
 3. **Set up Database**
    ```bash
-   # Create PostgreSQL database
-   createdb thasinia_bot
-   
-   # Run database migrations (when implemented)
-   npm run migrate
+   # Database is automatically created on first run
+   # No manual setup required - SQLite is used
    ```
 
 4. **Build and Deploy**
@@ -133,15 +130,21 @@ The bot uses its **own permission system** instead of Discord permissions.
 
 **Permission Levels:**
 - **👤 User**: Basic commands (everyone can use)
+- **🛡️ Trialmod**: Limited moderation capabilities
 - **🛡️ Moderator**: Moderation commands
 - **⚡ Administrator**: Administrative commands
-- **👨‍💻 Developer**: Bot development commands
+- **👨‍💻 Server Developer**: Server developer privileges
+- **👑 Server Owner**: Server owner level
+- **👨‍💻 Developer**: Bot developer access
+- **👑 Bot Owner**: Full bot control
 
 **How permissions work:**
-- Guild owners automatically get 'dev' permissions
+- Guild owners automatically get 'sowner' permissions
+- Bot owner (BOTOWNER_ID) has full control
+- DEV users have developer access
 - Permissions are stored in the database
 - Commands check permissions before executing
-- Permission levels are hierarchical (dev > admin > mod > user)
+- Permission levels are hierarchical (botowner > dev > sowner > sdev > admin > mod > trialmod > user)
 
 ### 3. Help System
 
@@ -190,9 +193,49 @@ EmbedUtils.createEmbed({
 });
 ```
 
-### 5. Database System
+### 5. Economy System
 
-The bot uses **PostgreSQL** for all data storage.
+The bot includes a **comprehensive economy system** with multiple features.
+
+**Economy Commands:**
+- **`!economy`** - Check your balance
+- **`!economy @user`** - Check another user's balance
+- **`!economy transfer @user <amount>`** - Transfer money
+- **`!economy leaderboard`** - Show richest users
+- **`!daily`** - Collect daily reward (100-500 + streak bonus)
+- **`!weekly`** - Collect weekly reward (500-2000 + streak bonus)
+- **`!monthly`** - Collect monthly reward (1000-5000 + streak bonus)
+
+**Streak System:**
+- **Daily Streak**: 100-500 base → up to 200-1000 with full streak
+- **Weekly Streak**: 500-2000 base → up to 1000-4000 with full streak
+- **Monthly Streak**: 1000-5000 base → up to 2000-10000 with full streak
+
+**Premium Features:**
+- **Custom Currency**: Set server-specific currency (premium only)
+- **Extended Duration**: Longer poll durations (premium only)
+- **More Options**: Up to 10 poll options vs 5 for free users
+
+### 7. Premium System
+
+The bot includes a **premium system** with multiple tiers.
+
+**Premium Tiers:**
+- **Free**: Basic functionality with community support
+- **Premium (€10/month)**: Enhanced features and priority support
+- **Lifetime (€200)**: One-time payment for permanent access
+- **Source Code (€1000)**: Full intellectual property rights (with restrictions)
+
+**Premium Features:**
+- Custom currency for economy system
+- Extended poll durations
+- More poll options (10 vs 5)
+- Priority support
+- Advanced statistics
+
+### 6. Database System
+
+The bot uses **SQLite** for all data storage with automatic setup.
 
 **What's stored in database:**
 - User permissions
@@ -205,26 +248,62 @@ The bot uses **PostgreSQL** for all data storage.
 ```sql
 -- Users table
 CREATE TABLE users (
-  user_id VARCHAR(20) PRIMARY KEY,
-  permission_level VARCHAR(10) DEFAULT 'user',
-  created_at TIMESTAMP DEFAULT NOW()
+  id TEXT PRIMARY KEY,
+  username TEXT NOT NULL,
+  permission_level TEXT DEFAULT 'user',
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
--- Guilds table
-CREATE TABLE guilds (
-  guild_id VARCHAR(20) PRIMARY KEY,
-  prefix VARCHAR(5) DEFAULT '!',
-  welcome_channel VARCHAR(20),
-  log_channel VARCHAR(20),
-  created_at TIMESTAMP DEFAULT NOW()
+-- Guild settings table
+CREATE TABLE guild_settings (
+  guild_id TEXT PRIMARY KEY,
+  prefix TEXT DEFAULT '!',
+  welcome_channel_id TEXT,
+  welcome_message TEXT,
+  log_channel_id TEXT,
+  log_events TEXT,
+  automod_settings TEXT,
+  custom_currency TEXT,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
 -- Economy table
 CREATE TABLE economy (
-  user_id VARCHAR(20) PRIMARY KEY,
+  user_id TEXT PRIMARY KEY,
   balance INTEGER DEFAULT 0,
-  last_daily TIMESTAMP,
-  created_at TIMESTAMP DEFAULT NOW()
+  last_daily DATETIME,
+  daily_streak INTEGER DEFAULT 0,
+  weekly_streak INTEGER DEFAULT 0,
+  monthly_streak INTEGER DEFAULT 0,
+  last_weekly DATETIME,
+  last_monthly DATETIME,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Premium subscriptions table
+CREATE TABLE premium_subscriptions (
+  user_id TEXT PRIMARY KEY,
+  tier TEXT NOT NULL CHECK (tier IN ('premium', 'lifetime', 'source_code')),
+  start_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+  end_date DATETIME,
+  payment_id TEXT,
+  status TEXT DEFAULT 'active' CHECK (status IN ('active', 'cancelled', 'expired')),
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Role permissions table
+CREATE TABLE role_permissions (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  guild_id TEXT NOT NULL,
+  role_id TEXT NOT NULL,
+  permission_level TEXT NOT NULL CHECK (permission_level IN ('trialmod', 'mod', 'admin', 'sdev', 'sowner')),
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  UNIQUE(guild_id, role_id)
 );
 ```
 
