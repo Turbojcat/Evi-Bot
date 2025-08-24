@@ -159,6 +159,10 @@ LEGAL_ACCESS_PASSWORD=123
 |---------|-------------|-------|------------|
 | `/reload` | Reload all commands | `/reload` | Admin |
 | `/legalaccess` | Access legal ownership info | `/legalaccess` | BOTOWNER |
+| `/promote` | Promote user to higher level | `/promote <user> <level>` | Admin |
+| `/demote` | Demote user to lower level | `/demote <user> <level>` | Admin |
+| `/permissions` | Check user permission level | `/permissions [user]` | User |
+| `/permissionlist` | Show all permission levels | `/permissionlist` | User |
 
 ### ⚖️ **Legal Commands**
 | Command | Description | Usage | Permission |

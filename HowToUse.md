@@ -402,8 +402,11 @@ LOG_LEVEL=debug
 
 ### Admin Commands
 - `/reload` - Reload all commands
-- `/setpermission` - Set user permission level
-- `/config` - Configure bot settings
+- `/promote` - Promote user to higher permission level
+- `/demote` - Demote user to lower permission level
+- `/permissions` - Check user permission level
+- `/permissionlist` - Show all permission levels
+- `/legalaccess` - Access legal ownership info (BOTOWNER only)
 
 ### Info Commands
 - `/serverinfo` - Show server information
