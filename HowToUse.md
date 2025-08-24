@@ -1,4 +1,6 @@
-# How To Use ThasiniaBot - Complete Guide
+How To Use ThasiniaBot
+
+Complete Guide
 
 This document explains how everything works in the ThasiniaBot project so a new person can get everything working.
 
