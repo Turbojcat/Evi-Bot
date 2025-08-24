@@ -1,66 +1,47 @@
-# Evi License Agreement
+# Evi Bot Legal Documentation
 
-**Copyright (c) 2024 Thasinia Sarcyne. All rights reserved.**
+## 📋 Legal Documents Overview
 
-## Ownership and Rights
+This repository contains comprehensive legal documentation for Evi Bot. All documents are legally binding and enforceable.
 
-This software, including all source code, documentation, and associated files (collectively "Evi Bot"), is the exclusive property of **Thasinia Sarcyne**.
+### 📄 Main Legal Documents
 
-## License Terms
+- **[📜 License Agreement](legal/license.md)** - Complete software licensing terms and conditions
+- **[🔒 Privacy Policy](legal/Policy.md)** - Data protection and privacy information  
+- **[💎 Premium Terms](legal/Premium.md)** - Premium service terms and conditions
+- **[⚖️ Terms of Service](legal/ToS.md)** - Service usage terms and conditions
 
-### For Free Users
-- You may use Evi Bot on your Discord servers
-- You may not modify, distribute, or redistribute the software
-- You may not reverse engineer or attempt to extract source code
-- You may not use Evi Bot for commercial purposes without written permission
+### 🎯 Quick Access
 
-### For Premium Users
-- All Free user rights apply
-- Additional features as specified in your premium tier
-- Support access as defined in your subscription
+| Document | Purpose | Link |
+|----------|---------|------|
+| **License Agreement** | Software licensing and intellectual property rights | [View License](legal/license.md) |
+| **Privacy Policy** | Data collection, usage, and protection | [View Policy](legal/Policy.md) |
+| **Premium Terms** | Premium service tiers and payment terms | [View Premium](legal/Premium.md) |
+| **Terms of Service** | Service usage and user responsibilities | [View ToS](legal/ToS.md) |
 
-### For Source Code Buyers
-- Full intellectual property rights for purchased version only
-- May modify and customize for personal use
-- **STRICTLY FORBIDDEN**: Resale, redistribution, or transfer of source code
-- **PENALTY**: €10,000 fine for any violation
-- Must maintain Discord Administrator permission on all servers where used
-- No ownership transfer allowed
+### 🔐 Key Legal Information
 
-## Prohibited Activities
+- **Bot Owner**: Thasinia Sarcyne
+- **Support Server**: [Discord Support](https://discord.gg/6tnqjeRach)
+- **License Type**: Evi License Agreement (Custom)
+- **Jurisdiction**: Applicable laws govern all documents
 
-1. **Resale or Redistribution**: Selling, giving away, or distributing Evi Bot or its source code
-2. **Reverse Engineering**: Attempting to extract, decompile, or reverse engineer the software
-3. **Commercial Use**: Using Evi Bot for commercial purposes without explicit permission
-4. **Modification and Distribution**: Modifying and distributing modified versions
-5. **Copyright Removal**: Removing or altering copyright notices
+### ⚠️ Important Notes
 
-## Legal Enforcement
+- All legal documents can be updated at any time without warning
+- Updates will be announced on the support server
+- Continued use constitutes acceptance of all terms
+- Violations may result in legal action and penalties
 
-- Violations will result in immediate legal action
-- €10,000 penalty for source code resale violations
-- Termination of access without warning for any violations
-- All legal costs will be borne by the violator
+### 📞 Contact Information
 
-## Support and Updates
-
-- Free users: Community support only
-- Premium users: Priority support as per subscription
-- Source code buyers: No automatic updates included
-- Updates available for purchase via support ticket
-
-## Contact Information
-
-- **Support Server**: https://discord.gg/6tnqjeRach
-- **Author**: Thasinia Sarcyne
-- **Email**: [To be added]
-
-## Jurisdiction
-
-This license is governed by applicable law and any disputes will be resolved in the appropriate legal jurisdiction.
+For legal inquiries or support:
+- **Support Server**: [Join Discord](https://discord.gg/6tnqjeRach)
+- **Email**: (coming soon)
 
 ---
 
-**By using Evi Bot, you agree to these terms and conditions.**
+**By using Evi Bot, you accept all legal terms and conditions outlined in these documents.**
 
-**Thasinia Sarcyne reserves all rights not expressly granted in this license.**
+*Last updated: January 2025*
