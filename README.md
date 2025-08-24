@@ -76,8 +76,8 @@
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/ThasiniaSarcyne/evi-bot.git
-   cd evi-bot
+   git clone https://github.com/Turbojcat/Evi-Bot.git
+   cd Evi-Bot
    ```
 
 2. **Install dependencies**
@@ -378,7 +378,7 @@ export default {
 
 ### Getting Help
 - **Support Server**: [Join our Discord](https://discord.gg/6tnqjeRach)
-- **Issues**: [GitHub Issues](https://github.com/ThasiniaSarcyne/evi-bot/issues)
+- **Issues**: [GitHub Issues](https://github.com/Turbojcat/Evi-Bot/issues)
 - **Documentation**: Check the docs folder for detailed guides
 
 ### Contributing
@@ -405,7 +405,7 @@ This project is licensed under the Evi License Agreement - see the [license.md](
 
 [![Add to Discord](https://img.shields.io/badge/Add%20to%20Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/oauth2/authorize?client_id=1242259937808220262&permissions=8&integration_type=0&scope=bot)
 [![Support Server](https://img.shields.io/badge/Join%20Support%20Server-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/6tnqjeRach)
-[![Report Issue](https://img.shields.io/badge/Report%20Issue-red?style=for-the-badge&logo=github)](https://github.com/ThasiniaSarcyne/evi-bot/issues)
+[![Report Issue](https://img.shields.io/badge/Report%20Issue-red?style=for-the-badge&logo=github)](https://github.com/Turbojcat/Evi-Bot/issues)
 [![Donate](https://img.shields.io/badge/Donate%20via%20PayPal-00457C?style=for-the-badge&logo=paypal)](https://paypal.me/ThasiniaSarcyne)
 
 </div>
@@ -429,10 +429,10 @@ This project is licensed under the Evi License Agreement - see the [license.md](
 
 <div align="center">
 
-![GitHub stars](https://img.shields.io/github/stars/ThasiniaSarcyne/evi-bot?style=for-the-badge&logo=github)
-![GitHub forks](https://img.shields.io/github/forks/ThasiniaSarcyne/evi-bot?style=for-the-badge&logo=github)
-![GitHub issues](https://img.shields.io/github/issues/ThasiniaSarcyne/evi-bot?style=for-the-badge&logo=github)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/ThasiniaSarcyne/evi-bot?style=for-the-badge&logo=github)
+![GitHub stars](https://img.shields.io/github/stars/Turbojcat/Evi-Bot?style=for-the-badge&logo=github)
+![GitHub forks](https://img.shields.io/github/forks/Turbojcat/Evi-Bot?style=for-the-badge&logo=github)
+![GitHub issues](https://img.shields.io/github/issues/Turbojcat/Evi-Bot?style=for-the-badge&logo=github)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/Turbojcat/Evi-Bot?style=for-the-badge&logo=github)
 
 </div>
 
@@ -444,7 +444,7 @@ This project is licensed under the Evi License Agreement - see the [license.md](
 
 [![Discord](https://img.shields.io/badge/Discord-Support%20Server-7289DA?style=for-the-badge&logo=discord)](https://discord.gg/6tnqjeRach)
 [![PayPal](https://img.shields.io/badge/Donate%20via%20PayPal-00457C?style=for-the-badge&logo=paypal)](https://paypal.me/ThasiniaSarcyne)
-[![GitHub](https://img.shields.io/badge/GitHub-Profile-181717?style=for-the-badge&logo=github)](https://github.com/ThasiniaSarcyne)
+[![GitHub](https://img.shields.io/badge/GitHub-Profile-181717?style=for-the-badge&logo=github)](https://github.com/Turbojcat)
 
 </div>
 
