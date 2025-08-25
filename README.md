@@ -58,6 +58,18 @@
 - **Automatic Setup** - No manual database configuration required
 - **Data Persistence** - User data, settings, and statistics
 - **Usage Tracking** - Command usage and user activity logs
+- **Multi-Database System** - Separate databases for different systems (main, premium, leveling, economy)
+
+### 🎯 **Advanced Leveling System**
+- **Message XP** - Awarded for valid messages with spam detection
+- **Voice XP** - XP for speaking in voice channels with cooldowns
+- **Streak System** - Daily activity streaks with XP bonuses (up to 50%)
+- **Non-linear Progression** - Each level requires more XP than the previous
+- **Spam Prevention** - Advanced detection for duplicate messages and random characters
+- **Custom Rank Cards** - Personalized rank cards with custom backgrounds
+- **Badge System** - Collectible badges for achievements and milestones
+- **Level Rewards** - Automatic rewards for reaching specific levels
+- **Premium Features** - Enhanced features for premium and lifetime users
 
 ### ⚖️ **Legal Framework**
 - **Comprehensive Legal Documents** - Premium, Policy, ToS, License
@@ -191,6 +203,21 @@ PREMIUM_PRICE_SOURCE_CODE=your_price
 | `/monthly` | Collect monthly reward | `/monthly` | User |
 | `/currency` | Manage custom currency | `/currency <set|reset|info>` | Admin |
 
+### 🎯 **Leveling System Commands**
+| Command | Description | Usage | Permission |
+|---------|-------------|-------|------------|
+| `/rank` | View rank card | `/rank [user]` | User |
+| `/leaderboard` | View leveling leaderboards | `/leaderboard [type]` | User |
+| `/badges` | View and manage badges | `/badges [user]` | User |
+| `/streak` | View daily streak info | `/streak` | User |
+| `/voicexp` | Voice XP settings | `/voicexp` | User |
+| `/levelingsettings` | Configure leveling | `/levelingsettings` | Admin |
+| `/xp` | Manage user XP | `/xp add|remove <user> <amount>` | Admin |
+| `/level` | Set user level | `/level set <user> <level>` | Admin |
+| `/levelrewards` | Manage level rewards | `/levelrewards set|list|remove|clear` | Admin |
+| `/levelmessage` | Configure level-up messages | `/levelmessage set|view|disable|test` | Admin |
+| `/customrank` | Custom rank backgrounds | `/customrank set|view|remove` | User |
+
 ### 🎮 **Fun Commands**
 | Command | Description | Usage | Permission |
 |---------|-------------|-------|------------|
@@ -219,6 +246,7 @@ PREMIUM_PRICE_SOURCE_CODE=your_price
 - **Info** - Information and status
 - **Legal** - Legal documents and terms
 - **Economy** - Currency and economy system
+- **Leveling** - XP, levels, streaks, badges, and rewards
 - **Fun** - Entertainment commands
 - **Moderation** - Server moderation
 - **Setup** - Server setup commands
