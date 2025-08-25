@@ -260,7 +260,6 @@ CREATE TABLE guild_settings (
   guild_id TEXT PRIMARY KEY,
   prefix TEXT DEFAULT '!',
   welcome_channel_id TEXT,
-  welcome_message TEXT,
   log_channel_id TEXT,
   log_events TEXT,
   automod_settings TEXT,

@@ -52,6 +52,11 @@ out/
 *.swo
 *~
 
+# Allow Cursor rules
+!.cursor/
+!.cursor/rules/
+!.cursor/rules/*.md
+
 # Ignore OS generated files
 .DS_Store
 .DS_Store?
