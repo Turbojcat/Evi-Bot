@@ -37,6 +37,10 @@ node_modules/
 *.sqlite
 *.sqlite3
 evi_bot.db
+main.db
+premium.db
+leveling.db
+economy.db
 
 # Ignore build and cache files
 .cache/
